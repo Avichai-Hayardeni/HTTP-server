@@ -11,3 +11,5 @@ error (bad request):
 ![alt text](https://user-images.githubusercontent.com/96888795/149663486-9600ba4f-4dbd-4490-be47-0982bb22066d.png)
 error (page not found):
 ![alt text](https://user-images.githubusercontent.com/96888795/149663451-31ecc9e8-6c78-4aeb-9380-9613fabf166f.png)
+request in wirseshark:
+![alt text](https://user-images.githubusercontent.com/96888795/149663715-18be025d-ff9b-4fbd-9d3b-6e1cbbba6f77.png)
