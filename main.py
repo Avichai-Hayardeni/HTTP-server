@@ -9,7 +9,7 @@ def send_css():
 
 @app.route("/")
 def welcome_page():
-    return render_template('welcome.html', ip=request.remote_addr)
+    return render_template("welcome.html", ip=request.remote_addr)
 
 
 @app.route("/sum")
@@ -22,8 +22,7 @@ def sum():
             sum += int(x)
         else:
             return Response(render_template("idiot.html"), status=400)
-    return render_template('sum.html', sum=sum)
-
+    return render_template("sum.html", sum=sum)
 
 
 @app.route("/average")
@@ -37,7 +36,12 @@ def average():
         else:
             return Response(render_template("idiot.html"), status=400)
     average = round(sum/len(keys), 2)
-    return render_template('average.html', average=average)
+    return render_template("average.html", average=average)
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return Response(render_template("404.html"), status=404)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="12345")
