@@ -9,7 +9,17 @@
     font-size: 2em;
     text-shadow: 13px 13px 50px green;
 }
-#hello {
+
+#sum {
     color: red;
     text-shadow: 13px 13px 50px yellow;
+}
+
+#idiot {
+    font-size: 10em
+}
+
+#average {
+    color: #9400D3;
+    text-shadow: 13px 13px 50px #1E90FF;
 }

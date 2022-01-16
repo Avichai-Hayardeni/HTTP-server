@@ -9,25 +9,35 @@ def send_css():
 
 @app.route("/")
 def welcome_page():
-    return render_template('welcome response.html', ip=request.remote_addr)
+    return render_template('welcome.html', ip=request.remote_addr)
 
 
 @app.route("/sum")
 def sum():
-    if "num1" in request.args and "num2" in request.args:
-        num1 = int(request.args.get("num1"))
-        num2 = int(request.args.get("num2"))
-        return render_template('sum response.html', sum=num1+num2)
-    else:
-        return Response("idiot", status=418)
+    sum = 0
+    keys = request.args.keys()
+    for key in keys:
+        x = request.args.get(key)
+        if x.isdigit():
+            sum += int(x)
+        else:
+            return Response(render_template("idiot.html"), status=400)
+    return render_template('sum.html', sum=sum)
 
 
-@app.route("/myname")
-def myname():
-    if len(request.args) != 1 or "name" not in request.args:
-        return Response("idiot", status=400)
-    return render_template('myname response.html', name=request.args.get("name"))
 
+@app.route("/average")
+def average():
+    sum = 0
+    keys = request.args.keys()
+    for key in keys:
+        x = request.args.get(key)
+        if x.isdigit():
+            sum += int(x)
+        else:
+            return Response(render_template("idiot.html"), status=400)
+    average = round(sum/len(keys), 2)
+    return render_template('average.html', average=average)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port="12345")
